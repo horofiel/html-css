@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com links</title>
+</head>
+<body>
+    <canvas id="desenho1" width="400" height="40" style="border:1px solid rgb(0, 0, 0);">
+        <h3>Seu browser nao tem suporte ao canvas</h3>
+    </canvas>
+    <script type="text/javascript">
+        let canvas=document.getElementById("desenho1")
+        let ctx=canvas.getContext('2d')
+        let dx=2
+        let dy=0
+        let dx2=2.1
+        let px=0
+        let py=10
+        let px2=60
+        let py2=10
+        let anima
+        let largRet=altRet=20
+        let lcanvas=acanvas=400
+        let l2ret=a2ret=20
+        let l2canvas=a2canvas=400
+        function desenhar(){
+            ctx.clearRect(0,0,lcanvas,acanvas)
+
+            ctx.fillStyle='#f00'
+            ctx.lineWidth=1
+            ctx.stokeStyle='#000'
+
+            ctx.fillStyle="rgba(0,0,250,0.5)"
+            ctx.fillRect(px,py,largRet,altRet)
+            ctx.strokeRect(px,py,largRet,altRet)
+
+            ctx.fillStyle="rgba(95,255,95,0.5)"
+            ctx.fillRect(px2,py2,l2ret,a2ret)
+            ctx.strokeRect(px2,py2,l2ret,a2ret)
+
+
+            px+=dx
+            if (px+largRet>=lcanvas)
+                dx=-2
+            if (px<=0)
+                dx=2
+
+            py+=dy
+            if (py+altRet>=acanvas)
+                dy=-2
+            if (py<=0)
+                dy=2
+
+             px2+=dx2
+            if (px2+l2ret>=l2canvas)
+                dx2=-2.1
+            if (px2<=0)
+                dx2=2.1
+            anima=requestAnimationFrame(desenhar)
+        }
+        desenhar()
+     </script>
+    <h1>Usando links externos</h1>
+    <p>Voce pode acessar o meu <a href="https://gustavoguanabara.github.io/" target="_blank" rel="external">repositório público no GitHub</a></p>
+    <p>Você também pode acessar o meu <a href="https://youtube.com/cursoemvideo/" target="_blank" rel="external">canal gratuito no YouTube</a></p>
+    <h1>Usando links internos</h1>
+    <p>Esta é a primeira pagina do site. Se você quiser, pode acessar também a minha <a href="pag002.html" rel="next" target="_self">Segunda página</a> ou acesse a nossa página de <a href="noticias/pag003.html" rel="next" target="_self">notícias</a></p>
+
+    <h1>Links para download</h1>
+    <ul>
+        <li><a href="livro/14 - Fontes.pdf" download="14 - Fontes.pdf" type="application/pdf">Baixar o livro em PDF</a></li>
+        <li><a href="livro/meulivro.zip.zip" download="meulivro.zip">Baixar livro compactado em ZIP</a></li>
+    </ul>
+</body>
+</html>
